@@ -31,7 +31,7 @@ if 'messages' not in st.session_state:
 # Custom avatar for the assistant, default avatar for user
 for message in st.session_state.messages:
     if message["role"] == 'assistant':
-        with st.chat_message(message["role"], avatar=company_logo):
+        with st.chat_message(message["role"], avatar=csp_logo):
             st.markdown(message["content"])
     else:
         with st.chat_message(message["role"]):
@@ -45,7 +45,7 @@ if query := st.chat_input("Let's chat"):
     with st.chat_message("user"):
         st.markdown(query)
 
-    with st.chat_message("assistant", avatar=company_logo):
+    with st.chat_message("assistant", avatar=csp_logo):
         message_placeholder = st.empty()
         with st.spinner("In progress..."):
             # Send user's question to our chain
