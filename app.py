@@ -4,7 +4,7 @@ from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
 csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
-college_board_logo = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fblog.collegeboard.org%2Fblog%2Fstyles%2Fcb_post_square_thumbnail%2Fpublic%2F2020-03%2FCollege-Board-Logo-Icon.jpg%3Fh%3D48cc5edc%26itok%3DU_HNbelF&tbnid=StvO7iqF44FMMM&vet=12ahUKEwjrz--jloOCAxUDFGIAHbn9BR8QMygEegQIARB0..i&imgrefurl=https%3A%2F%2Fblog.collegeboard.org%2Ftopic%2Fcollege-planning&docid=yNC2LluMF5Yz5M&w=695&h=695&q=college%20board%20logo&ved=2ahUKEwjrz--jloOCAxUDFGIAHbn9BR8QMygEegQIARB0"
+college_board_logo = "https://wthsscratchpaper.net/wp-content/uploads/2023/03/College-Board-Logo-Icon.jpg"
 
 # Configure streamlit page
 st.set_page_config(
