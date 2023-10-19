@@ -4,7 +4,6 @@ from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
 csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
-st.image('https://pbs.twimg.com/media/EUtgM_gX0AEuHmx?format=png&name=medium')
 
 # Configure streamlit page
 st.set_page_config(
@@ -12,11 +11,12 @@ st.set_page_config(
     page_icon=csp_logo
 )
 
+
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
         "We appreciate your engagement! Please note, this is research purposes only. Thank you for your understanding."
     )
-
+    
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
     st.session_state['chain']= load_chain()
@@ -47,11 +47,10 @@ if query := st.chat_input("Let's chat"):
 
     with st.chat_message("assistant", avatar=csp_logo):
         message_placeholder = st.empty()
-        with st.spinner("In progress..."):
-            # Send user's question to our chain
-            result = st.session_state['chain']({"question": query})
-            response = result['answer']
-            full_response = ""
+        # Send user's question to our chain
+        result = st.session_state['chain']({"question": query})
+        response = result['answer']
+        full_response = ""
 
         # Simulate stream of response with milliseconds delay
         for chunk in response.split():
