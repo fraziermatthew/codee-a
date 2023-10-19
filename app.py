@@ -4,13 +4,15 @@ from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
 csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
+college_board_logo = "https://www.google.com/imgres?imgurl=https%3A%2F%2Fblog.collegeboard.org%2Fblog%2Fstyles%2Fcb_post_square_thumbnail%2Fpublic%2F2020-03%2FCollege-Board-Logo-Icon.jpg%3Fh%3D48cc5edc%26itok%3DU_HNbelF&tbnid=StvO7iqF44FMMM&vet=12ahUKEwjrz--jloOCAxUDFGIAHbn9BR8QMygEegQIARB0..i&imgrefurl=https%3A%2F%2Fblog.collegeboard.org%2Ftopic%2Fcollege-planning&docid=yNC2LluMF5Yz5M&w=695&h=695&q=college%20board%20logo&ved=2ahUKEwjrz--jloOCAxUDFGIAHbn9BR8QMygEegQIARB0"
 
 # Configure streamlit page
 st.set_page_config(
     page_title="ChatCSP",
-    page_icon=csp_logo
+    page_icon=college_board_logo
 )
 
+st.image(csp_logo)
 st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 with st.expander("ℹ️ Disclaimer"):
@@ -32,7 +34,7 @@ if 'messages' not in st.session_state:
 # Custom avatar for the assistant, default avatar for user
 for message in st.session_state.messages:
     if message["role"] == 'assistant':
-        with st.chat_message(message["role"], avatar="🤖"):
+        with st.chat_message(message["role"], avatar=csp_logo):
             st.markdown(message["content"])
     else:
         with st.chat_message(message["role"]):
@@ -46,7 +48,7 @@ if query := st.chat_input("Let's chat"):
     with st.chat_message("user"):
         st.markdown(query)
 
-    with st.chat_message("assistant", avatar="🤖"):
+    with st.chat_message("assistant", avatar=csp_logo):
         message_placeholder = st.empty()
         # Send user's question to our chain
         result = st.session_state['chain']({"question": query})
