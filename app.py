@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon=csp_logo
 )
 
-st.title("ChatCSP: A ChatGPT chatbot for AP Computer Science Principles")
+st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
