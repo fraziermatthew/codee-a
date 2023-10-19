@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon=college_board_logo
 )
 
-st.image(csp_logo)
+# st.image(csp_logo)
 st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 with st.expander("ℹ️ Disclaimer"):
