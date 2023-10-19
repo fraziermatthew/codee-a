@@ -7,10 +7,11 @@ csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-
 
 # Configure streamlit page
 st.set_page_config(
-    page_title="ChatCSP: ChatGPT for Computer Science Principles",
+    page_title="ChatCSP",
     page_icon=csp_logo
 )
 
+st.title("ChatCSP: A ChatGPT chatbot for AP Computer Science Principles")
 
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
@@ -31,7 +32,7 @@ if 'messages' not in st.session_state:
 # Custom avatar for the assistant, default avatar for user
 for message in st.session_state.messages:
     if message["role"] == 'assistant':
-        with st.chat_message(message["role"], avatar=csp_logo):
+        with st.chat_message(message["role"], avatar="🤖"):
             st.markdown(message["content"])
     else:
         with st.chat_message(message["role"]):
@@ -45,7 +46,7 @@ if query := st.chat_input("Let's chat"):
     with st.chat_message("user"):
         st.markdown(query)
 
-    with st.chat_message("assistant", avatar=csp_logo):
+    with st.chat_message("assistant", avatar="🤖"):
         message_placeholder = st.empty()
         # Send user's question to our chain
         result = st.session_state['chain']({"question": query})
