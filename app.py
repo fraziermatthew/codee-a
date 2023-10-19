@@ -4,6 +4,7 @@ from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
 csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
+st.image('https://pbs.twimg.com/media/EUtgM_gX0AEuHmx?format=png&name=medium')
 
 # Configure streamlit page
 st.set_page_config(
