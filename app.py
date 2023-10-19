@@ -3,13 +3,18 @@ import streamlit as st
 from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
-company_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
+csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
 
 # Configure streamlit page
 st.set_page_config(
-    page_title="ChatCSP",
-    page_icon=company_logo
+    page_title="ChatCSP: ChatGPT for Computer Science Principles",
+    page_icon=csp_logo
 )
+
+with st.expander("ℹ️ Disclaimer"):
+    st.caption(
+        "We appreciate your engagement! Please note, this is research purposes only. Thank you for your understanding."
+    )
 
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
@@ -41,10 +46,11 @@ if query := st.chat_input("Let's chat"):
 
     with st.chat_message("assistant", avatar=company_logo):
         message_placeholder = st.empty()
-        # Send user's question to our chain
-        result = st.session_state['chain']({"question": query})
-        response = result['answer']
-        full_response = ""
+        with st.spinner("In progress..."):
+            # Send user's question to our chain
+            result = st.session_state['chain']({"question": query})
+            response = result['answer']
+            full_response = ""
 
         # Simulate stream of response with milliseconds delay
         for chunk in response.split():
