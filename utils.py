@@ -32,7 +32,7 @@ def load_chain():
     retriever = vector_store.as_retriever(search_kwargs=search_kwargs)
     
     # Create memory 'chat_history' 
-    memory = ConversationBufferWindowMemory(k=10, memory_key="chat_history")
+    memory = ConversationBufferWindowMemory(k=5, memory_key="chat_history")
 
     # Create the Conversational Chain
     chain = ConversationalRetrievalChain.from_llm(llm=llm, 
