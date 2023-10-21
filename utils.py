@@ -25,7 +25,7 @@ def load_chain():
     # Load OpenAI chat model
     llm = ChatOpenAI(temperature=0, model="gpt-4")
     
-    # Load our local FAISS index as a retriever
+    # Load our local Chroma index as a retriever
     persist_directory="db_all"
     vector_store = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
     search_kwargs = {"k": 3}
