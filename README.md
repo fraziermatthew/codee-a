@@ -82,6 +82,7 @@ python load_db.py
 Not all chatbot responses are suitable for a high school CSP student.
 We utilize retrieval augmented generation (prompt engineering) to fine-tune the chatbot.
 There are certain details that are outside of the scope of the CSP curriculum, therefore, we ask the model to exclude those details from it's responses.
+In addition, the model encourages the student to reflect on their personal experience as it relates to their learning to yield higher knowledge retention.
 
 431 tokens, 1725 characters, 265 words
 
