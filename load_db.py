@@ -1,4 +1,4 @@
-from langchain.document_loaders import DirectoryLoader, UnstructuredPowerPointLoader, TextLoader, YoutubeLoader
+from langchain.document_loaders import DirectoryLoader, UnstructuredPowerPointLoader, YoutubeLoader
 from langchain.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
