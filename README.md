@@ -1,8 +1,8 @@
+![](example.gif)
+
 # ChatCSP
 
 Repository for research.
-
-![](example.gif)
 
 ## Description
 
