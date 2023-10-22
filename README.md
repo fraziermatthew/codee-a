@@ -50,13 +50,14 @@ You can interact with the conversational agent using this URL: https://chatcsp-t
 <!-- ![](https://excalidraw.com/#json=3q-gZh5U3DKXC71eRqzKK,scLPqDk3ZCRzgAYw--9ftg) -->
 ![](design.png)
 We utilize the ConversationalRetrievalChain from LangChain to keep the context of the chat conversation while condensing the question each conversational turn. 
-Step 1. The user sends a question
-Step 2. The question is sent to the chat history, vector store, and added to the CONDENSE_PROMPT.
-Step 3. The question and chat history in a CONDENSE_PROMPT asks the LLM to 
+
+1. The user sends a question
+2. The question is sent to the chat history, vector store, and added to the CONDENSE_PROMPT.
+3. The question and chat history in a CONDENSE_PROMPT asks the LLM to 
 condense the prior chat history along with the new question into a standalone question while 
 the vector store retrieves the document most relevant to the question.
-Step 4. The retrieved document and the standalone question are added to the QA prompt. The QA prompt is used to ask the LLM a question.
-Step 5. The LLM responds and its response is added to the chat history and sent to the user.
+4. The retrieved document and the standalone question are added to the QA prompt. The QA prompt is used to ask the LLM a question.
+5. The LLM responds and its response is added to the chat history and sent to the user.
 
 ### Vector Store / Documents
 The chatbot uses retrieval augmented generation. The documents in the vector store are from 2 CSP curriculums:
