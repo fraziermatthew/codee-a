@@ -26,7 +26,7 @@ def load_chain():
     llm = ChatOpenAI(temperature=0, model="gpt-4")
     
     # Load our local Chroma index as a retriever
-    persist_directory="db_all"
+    persist_directory="db"
     vector_store = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
     search_kwargs = {"k": 3}
     retriever = vector_store.as_retriever(search_kwargs=search_kwargs)
