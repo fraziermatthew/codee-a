@@ -50,25 +50,25 @@ You can interact with the conversational agent using this URL: https://chatcsp-t
 We utilize the ConversationalRetrievalChain from LangChain to keep the context of the chat conversation while condensing the question each conversational turn. 
 <!-- ![design](./architecture/design.png) -->
 
-### Vector Store
-The chatbot uses retrieval augmented generation (RAG). The vectorstore consists of data from two CSP curriculums:
+### Vector Store / Documents
+The chatbot uses retrieval augmented generation. The documents in the vector store are from 2 CSP curriculums:
 
 1. [Code.org](https://studio.code.org/courses/csp-2023)
 2. [The Beauty of Joy in Computing (BJC)](https://bjc.edc.org/bjc-r/course/bjc4nyc.html)
 
 #### Code.org
-1. There are 1200+ lecture slides across all 9 course Units.
-2. Transcipts of video lectures from 3 CSP YouTube playlists
+1. There are 1200+ teacher lecture slides across all 9 course Units.
+2. Transcipts of 73 instructional videos from 3 Code.org CSP YouTube playlists
 * https://www.youtube.com/watch?v=jQm0z894CG0&list=PLzdnOPI1iJNdbFuFpSi-veZPsS5BzzE-t
 * https://www.youtube.com/watch?v=15aqFQQVBWU&list=PLzdnOPI1iJNfV5ljCxR8BZWJRT_m_6CpB
 * https://www.youtube.com/watch?v=Kn6Fd5uwZno&list=PLzdnOPI1iJNdVYhNyXeP4FsbSH_AkUhxB
 
 #### BJC
-1. Transcripts of video lectures from the BJC YouTube channel
+1. Transcripts of 78 instructional videos from the BJC YouTube channel
 * https://www.youtube.com/@CSPBJC/videos
 
 #### Reproducing the Vector Store
-The `load_db.py` file will reproduce the vector store locally. If you wish to reproduce the vector store locally:
+The `load_db.py` file will reproduce the vector store locally. This script will load slides and transcripts of videos. If you wish to reproduce the vector store locally:
 1. Add your OPENAI_API_KEY to line 8
 ```python
 openai_api_key = "YOUR OPENAI API KEY"
@@ -110,6 +110,3 @@ Specific mathematical procedures for encryption and decryption are beyond the sc
 Question: {question}
 Helpful Answer:
 ```
-
-## Authors
-Matthew Frazier 
