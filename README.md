@@ -15,9 +15,9 @@ To run this chatbot locally, follow the below build instructions.
 ### Built With (Dependencies)
 
 * Python >=3.9
-* Langchain
+* LangChain
 * Streamlit
-* OpenAI
+* OpenAI (gpt-4 model)
 * Tiktoken
 * ChromaDB
 
@@ -47,13 +47,14 @@ Running the program locally:
 You can interact with the conversational agent using this URL: https://chatcsp-test.streamlit.app/
 
 ### Architecture
+We utilize the ConversationalRetrievalChain from LangChain to keep the context of the chat conversation while condensing the question each conversational turn. 
 <!-- ![design](./architecture/design.png) -->
 
 ### Vector Store
 The chatbot uses retrieval augmented generation (RAG). The vectorstore consists of data from two CSP curriculums:
 
 1. [Code.org](https://studio.code.org/courses/csp-2023)
-2. The Beauty of Joy in Computing (BJC)
+2. [The Beauty of Joy in Computing (BJC)](https://bjc.edc.org/bjc-r/course/bjc4nyc.html)
 
 #### Code.org
 1. There are 1200+ lecture slides across all 9 course Units.
@@ -69,6 +70,9 @@ The chatbot uses retrieval augmented generation (RAG). The vectorstore consists 
 #### Reproducing the Vector Store
 The `load_db.py` file will reproduce the vector store locally. If you wish to reproduce the vector store locally:
 1. Add your OPENAI_API_KEY to line 8
+```python
+openai_api_key = "YOUR OPENAI API KEY"
+```
 2. Run the following code:
 ```python
 python load_db.py
@@ -76,7 +80,8 @@ python load_db.py
 
 #### Prompt Engineering
 Not all chatbot responses are suitable for a high school CSP student.
-We utilize retrieval augmented generation (prompt engineering) to fine-tune chatbot.
+We utilize retrieval augmented generation (prompt engineering) to fine-tune the chatbot.
+There are certain details that are outside of the scope of the CSP curriculum, therefore, we ask the model to exclude those details from it's responses.
 
 431 tokens, 1725 characters, 265 words
 
