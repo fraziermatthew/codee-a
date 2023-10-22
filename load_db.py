@@ -9,7 +9,7 @@ openai_api_key = ""
 embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
 
 # Load all the slides
-loader = DirectoryLoader(path='./all_slides/', glob="./*.pptx", loader_cls=UnstructuredPowerPointLoader)
+loader = DirectoryLoader(path='./slides/', glob="./*.pptx", loader_cls=UnstructuredPowerPointLoader)
 docs_slides = loader.load()
 
 # Get all the video ids
