@@ -6,11 +6,11 @@ Repository for research.
 
 ## Description
 
-This is a conversational agent (chatbot) used for teaching high school students AP Computer Science Principles (CSP).
+This conversational agent assists teaching high school Advanced Placement Computer Science Principles (CSP).
 
 ## Getting Started
 
-To run this chatbot locally, follow the below build instructions.
+To run this locally, follow the below build instructions.
 
 ### Built With (Dependencies)
 
