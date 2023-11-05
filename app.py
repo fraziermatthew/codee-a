@@ -8,12 +8,12 @@ college_board_logo = "https://wthsscratchpaper.net/wp-content/uploads/2023/03/Co
 
 # Configure streamlit page
 st.set_page_config(
-    page_title="ChatCSP",
+    # page_title="ChatCSP",
     page_icon=college_board_logo
 )
 
 # st.image(csp_logo)
-st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
+# st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
@@ -28,7 +28,7 @@ if 'chain' not in st.session_state:
 if 'messages' not in st.session_state:
     # Start with first message from assistant
     st.session_state['messages'] = [{"role": "assistant", 
-                                  "content": "Hi student! I'm ChatCSP, an intelligent AI for Computer Science Principles. How can I help you today?"}]
+                                  "content": "Hi student! I'm an intelligent AI for Computer Science Principles. How can I help you today?"}]
 
 # Display chat messages from history on app rerun
 # Custom avatar for the assistant, default avatar for user
