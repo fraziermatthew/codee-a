@@ -40,7 +40,8 @@ class Modal:
                 width: 100vw !important;
                 max-width: 100vw !important;
                 left: 0;
-                top: 10%;  <!-- Position of the modal to the top of the page --> 
+                top: 5%;  <!-- Position of the modal to the top of the page --> 
+                bottom: -5%;
                 z-index: 1001;
             }}
             
