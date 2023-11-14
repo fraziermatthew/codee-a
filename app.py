@@ -23,12 +23,16 @@ college_board_logo = "https://wthsscratchpaper.net/wp-content/uploads/2023/03/Co
 
 # Configure streamlit page
 st.set_page_config(
-    # page_title="ChatCSP",
+    # page_title="ChatCSP",     # Removed name to avoid introducing bias
     page_icon=college_board_logo
 )
 
+# Removed name to avoid introducing bias
 # st.image(csp_logo)
 # st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
+
+# Adding user_id to title
+st.title(f"user_id: {user_id}")
 
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
@@ -84,6 +88,7 @@ if query := st.chat_input("Let's chat"):
         
         message_placeholder.markdown(full_response)
         
+        # Create modal
         modal = Modal(title="", key="modal")
         
         with modal.container():
