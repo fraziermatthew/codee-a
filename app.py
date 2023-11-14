@@ -32,7 +32,7 @@ st.set_page_config(
 # st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 # Adding user_id to title
-st.title(f"{user_id}")
+st.subheader(f"{user_id}")
 
 with st.expander("ℹ️ Disclaimer"):
     st.caption(
