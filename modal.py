@@ -40,19 +40,16 @@ class Modal:
                 width: 100vw !important;
                 max-width: 100vw !important;
                 left: 0;
-                top: 5%;  <!-- Position of the modal to the top of the page --> 
-                bottom: -5%;
+                top: 10%;  <!-- Position of the modal to the top of the page --> 
                 z-index: 1001;
             }}
             
             div[data-modal-container='true'][key='{self.key}'] > div:first-child {{
                 margin: auto;
-                
             }}
 
             div[data-modal-container='true'][key='{self.key}'] h1 a {{
                 display: none
-               
             }}
             
             div[data-modal-container='true'][key='{self.key}']::before {{
@@ -64,11 +61,10 @@ class Modal:
                     bottom: 0;
                     z-index: 1000;
                     background-color: rgba(0, 0, 0, 0.5);
-                    
             }}
+            
             div[data-modal-container='true'][key='{self.key}'] > div:first-child {{
                 max-width: {max_width};
-                
             }}
 
             div[data-modal-container='true'][key='{self.key}'] > div:first-child > div:first-child {{
@@ -81,25 +77,31 @@ class Modal:
                 margin-bottom: -{2*self.padding}px;
                 z-index: 1001;
                 border-radius: 5px;
-                
             }}
              
             div[data-modal-container='true'][key='{self.key}'] > div > div:nth-child(2)  {{
                 z-index: 1003;
-                position: absolute;
-                
+                position: absolute;    
             }}
+            
             div[data-modal-container='true'][key='{self.key}'] > div > div:nth-child(2) > div {{
                 text-align: right;
                 padding-right: {self.padding}px;
                 max-width: {max_width};
-                
             }}
             
             div[data-modal-container='true'][key='{self.key}'] > div > div:nth-child(2) > div > button {{
                 right: 0;
                 margin-top: {2*self.padding + 14}px;
                 overflow-y: scroll;
+            }}
+            
+            div.stChatFloatingInputContainer {{
+                display: none;
+            }}
+            
+            div.stMarkdown {{
+                padding: {self.padding}px;
             }}
             
             </style>
@@ -116,8 +118,7 @@ class Modal:
                 }}
                 div[data-modal-container='true'][key='{self.key}'] > div:first-child > div:first-child > div:first-child {{
                     width: {pop_up_width}px;
-                    <!-- Uncomment below if you want to add in scrolling --> 
-                    <!-- overflow-y: scroll; --> 
+                    overflow-y: scroll;  <!-- Adds a scroller -->
                     max-height: 600px;
                     overflow-x: hidden;
                 }}

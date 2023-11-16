@@ -95,7 +95,7 @@ if query := st.chat_input("Let's chat"):
 
             user_input = st.session_state.messages[-1]["content"]
             model_output = full_response
-            st.write(user_input)
+            st.write(f"**{user_input}**")
             st.write(model_output)
     
             with st.form("feedback"):
