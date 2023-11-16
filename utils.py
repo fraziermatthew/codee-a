@@ -9,10 +9,10 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 @st.cache_resource
-def load_chain():
+def load_chain(openai_api_key):
     """
     The `load_chain()` function initializes and configures a conversational retrieval chain for
     answering user questions.
@@ -20,10 +20,10 @@ def load_chain():
     """
 
     # Load OpenAI embedding model
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     
     # Load OpenAI chat model
-    llm = ChatOpenAI(temperature=0, model="gpt-4")
+    llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0, model="gpt-4")
     
     # Load our local Chroma index as a retriever
     persist_directory="db"

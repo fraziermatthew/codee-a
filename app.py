@@ -9,13 +9,11 @@ import streamlit as st
 from utils import load_chain
 from modal import Modal
 
+with st.sidebar:
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
 
 # Create a user_id for the session
 user_id = uuid4()
-
-# Initialize disabled for form_submit_button to False
-if "modal-opened" not in st.session_state:
-    st.session_state[f'modal-opened'] = False
 
 # Custom image for the app icon and the assistant's avatar
 csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-science-principles-192.png'
@@ -23,13 +21,8 @@ college_board_logo = "https://wthsscratchpaper.net/wp-content/uploads/2023/03/Co
 
 # Configure streamlit page
 st.set_page_config(
-    # page_title="ChatCSP",     # Removed name to avoid introducing bias
     page_icon=college_board_logo
 )
-
-# Removed name to avoid introducing bias
-# st.image(csp_logo)
-# st.title("ChatCSP: ChatGPT-customized for Computer Science Principles")
 
 # Adding user_id to title
 st.subheader(f"{user_id}")
@@ -43,7 +36,7 @@ with st.expander("ℹ️ Disclaimer"):
     
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
-    st.session_state['chain']= load_chain()
+    st.session_state['chain']= load_chain(openai_api_key=openai_api_key)
 
 # Initialize chat history
 if 'messages' not in st.session_state:
@@ -63,6 +56,10 @@ for message in st.session_state.messages:
 
 # Chat logic
 if query := st.chat_input("Let's chat"):
+    if not openai_api_key:
+        st.info("Please add your OpenAI API key to continue.")
+        st.stop()
+    
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
     
