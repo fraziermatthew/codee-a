@@ -32,9 +32,12 @@ with st.expander("ℹ️ Disclaimer"):
         """
     )
     
+with st.sidebar:
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+    
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
-    st.session_state['chain']= load_chain()
+    st.session_state['chain']= load_chain(openai_api_key=openai_api_key)
 
 # Initialize chat history
 if 'messages' not in st.session_state:
@@ -54,6 +57,9 @@ for message in st.session_state.messages:
 
 # Chat logic
 if query := st.chat_input("Let's chat"):
+    if not openai_api_key:
+        st.info("Please add your OpenAI API key to continue.")
+        st.stop()
     
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": query})
