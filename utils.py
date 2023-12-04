@@ -1,3 +1,4 @@
+import os
 import openai
 import streamlit as st
 
@@ -10,7 +11,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 
 
-
 @st.cache_resource
 def load_chain(openai_api_key):
     """
@@ -19,6 +19,7 @@ def load_chain(openai_api_key):
     :return: The `load_chain()` function returns a ConversationalRetrievalChain object.
     """
     # openai.api_key = st.secrets["OPENAI_API_KEY"]
+    os.environ['OPENAI_API_KEY'] = openai_api_key
     openai.api_key = openai_api_key
     
     # Load OpenAI embedding model
