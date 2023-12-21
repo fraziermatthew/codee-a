@@ -136,7 +136,7 @@ if query := st.chat_input("Let's chat"):
                     index=2,
                     horizontal=True
                 )
-
+                
                 submitted = st.form_submit_button("Submit")
                 
                 user_input = user_input.replace("'", "").replace('"', "").replace(",", "\,").replace("\n", " ")
@@ -146,6 +146,7 @@ if query := st.chat_input("Let's chat"):
 
                 con = sqlite3.connect("results.db")
                 with con:
+                    print(q1,q2,q3,q4)
                     cur = con.cursor()
                     cur.execute(f"""
                             INSERT INTO results
