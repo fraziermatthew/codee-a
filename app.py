@@ -14,6 +14,9 @@ csp_logo = 'https://apcentral.collegeboard.org/media/images/desktop/ap-computer-
 college_board_logo = "https://wthsscratchpaper.net/wp-content/uploads/2023/03/College-Board-Logo-Icon.jpg"
 codee_avatar = 'https://miro.medium.com/v2/resize:fit:525/1*lyyXmbeoK5JiIBNCnzzjjg.png'
 
+def change(button):
+    return button.label
+
 # Configure streamlit page
 st.set_page_config(
     page_icon=college_board_logo
@@ -134,8 +137,14 @@ if query := st.chat_input("Let's chat"):
                     label="If there are examples shown to you, how  understandable do you believe the examples were to you?",
                     options=["Very Poor", "Poor", "Acceptable", "Good", "Very Good", "N/A - Not Applicable"],
                     index=2,
-                    horizontal=True
+                    horizontal=True,
+                    on_change=change,
+                    args=q4
                 )
+                
+                q4_result=q4.label
+                q4_result2 = q4
+                print(q4, q4_result, q4_result2)
                 
                 submitted = st.form_submit_button("Submit")
                 
