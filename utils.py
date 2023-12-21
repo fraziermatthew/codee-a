@@ -26,7 +26,7 @@ def load_chain(openai_api_key):
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     
     # Load OpenAI chat model
-    llm = ChatOpenAI(openai_api_key=openai_api_key,temperature=0, model="gpt-4")
+    llm = ChatOpenAI(openai_api_key=openai_api_key,temperature=0.3, model="gpt-4")
     
     # Load our local Chroma index as a retriever
     persist_directory="db"
