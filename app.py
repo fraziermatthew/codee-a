@@ -137,7 +137,7 @@ if query := st.chat_input("Let's chat"):
                     horizontal=True
                 )
                 
-                
+                submitted = st.form_submit_button("Submit")
                 
                 user_input = user_input.replace("'", "").replace('"', "").replace(",", "\,").replace("\n", " ")
                 model_output = model_output.replace("'", "").replace('"', "").replace(",", "\,").replace("\n", " ")
@@ -145,8 +145,8 @@ if query := st.chat_input("Let's chat"):
                 timestamp = datetime.datetime.now(tz=pytz.timezone('America/New_York')).strftime("%Y-%m-%d %H:%M:%S")
 
                 con = sqlite3.connect("results.db")
+                print(q1,q2,q3,q4)
                 with con:
-                    print(q1,q2,q3,q4)
                     cur = con.cursor()
                     cur.execute(f"""
                             INSERT INTO results
@@ -161,7 +161,7 @@ if query := st.chat_input("Let's chat"):
                             '{timestamp}')
                         """)
                 
-                submitted = st.form_submit_button("Submit")
+                
 
     # Add assistant message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
