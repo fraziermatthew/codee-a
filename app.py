@@ -137,7 +137,7 @@ if query := st.chat_input("Let's chat"):
                     horizontal=True
                 )
                 
-                submitted = st.form_submit_button("Submit")
+                
                 
                 user_input = user_input.replace("'", "").replace('"', "").replace(",", "\,").replace("\n", " ")
                 model_output = model_output.replace("'", "").replace('"', "").replace(",", "\,").replace("\n", " ")
@@ -160,6 +160,8 @@ if query := st.chat_input("Let's chat"):
                             '{q4}',
                             '{timestamp}')
                         """)
+                
+                submitted = st.form_submit_button("Submit")
 
     # Add assistant message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
