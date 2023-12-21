@@ -78,7 +78,7 @@ if query := st.chat_input("Let's chat"):
     with st.chat_message("user"):
         st.markdown(query)
 
-    with st.chat_message("assistant", avatar=csp_logo):
+    with st.chat_message("assistant", avatar=codee_avatar):
         message_placeholder = st.empty()
         
         # Send user's question to our chain
